@@ -1,7 +1,7 @@
-from pony.orm import DataBase, Required, PrimaryKey, Optional
+from pony.orm import Database, Required, PrimaryKey, Optional
 import datetime
 
-db = DataBase()
+db = Database()
 
 class LogEventos(db.Entity):
     id = PrimaryKey(int, auto=True)
@@ -16,4 +16,4 @@ class Usuario(db.Entity):
     hashed_password = Required(str)
 
 db.bind(provider="sqlite", filename="database.sqlite", create_db=True)
-dn.generate_mapping(create_tables=True)
+db.generate_mapping(create_tables=True)
